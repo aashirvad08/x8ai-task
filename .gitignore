@@ -1,0 +1,12 @@
+node_modules
+.next
+next-env.d.ts
+*.tsbuildinfo
+
+# Cloudflare: local database and bucket, build output, local secrets
+.wrangler
+.open-next
+.dev.vars*
+
+# Built from data/ by `npm run build:data`
+/data/build

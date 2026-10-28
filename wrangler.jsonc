@@ -1,0 +1,29 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "run-deck",
+	"main": ".open-next/worker.js",
+	"compatibility_date": "2026-09-26",
+	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	// Labs, users, sessions, invites, tasks and the activity log.
+	// Before the first deploy: `npx wrangler d1 create run-deck`, then put the id it prints here.
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "run-deck",
+			"database_id": "00000000-0000-0000-0000-000000000000",
+			"migrations_dir": "migrations"
+		}
+	],
+	// Screenshots and per-run steps, stored under labs/<lab id>/ and only ever served after an access check.
+	// Before the first deploy: `npx wrangler r2 bucket create run-deck-data`.
+	"r2_buckets": [
+		{
+			"binding": "BUCKET",
+			"bucket_name": "run-deck-data"
+		}
+	]
+}
